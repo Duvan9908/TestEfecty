@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Sistema.Modelos.ViewModels;
 using System.Diagnostics;
-using TestEfecty.Models;
+//using Sistema.ViewModels.Modelos;
 
 namespace TestEfecty.Controllers
 {
+    [Area("Admin")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

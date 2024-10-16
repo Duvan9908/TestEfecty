@@ -1,4 +1,4 @@
-namespace TestEfecty.Models
+namespace Sistema.Modelos.ViewModels
 {
     public class ErrorViewModel
     {

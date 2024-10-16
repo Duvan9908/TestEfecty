@@ -1,0 +1,78 @@
+﻿@model Sistema.Modelos.Persona
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Agregar Persona";
+}
+
+<form method="post">
+    <div>
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+
+        @if (Model.Id != 0)
+        {
+            //Actualizar
+            titulo = "Actualizar persona";
+            <input type="hidden" asp-for="Id" id="id" />
+        }
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">@titulo</h2>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Nombre</label>
+                <input type="text" asp-for="NombreApellido" class="form-control" placeholder="Nombre " id="nombre" />
+                <span asp-validation-for="NombreApellido" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Apellido</label>
+                <input type="text" asp-for="TipoDocumento" class="form-control" placeholder="Docuemnto" id="apellido" />
+                <span asp-validation-for="TipoDocumento" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Fecha Nacimiento</label>
+                <input type="datetime" asp-for="FechaNacimiento" class="form-control" placeholder="Fecha Nacimeinto" id="carrera" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Valor Ganar</label>
+                <input type="number" asp-for="ValorGanar" class="form-control" placeholder="ValorGanar" id="carrera" />
+                <span asp-validation-for="ValorGanar" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Estado</label>
+                <select asp-for="EstadoCivil" class="form-select">
+                    <option value=Soltero>Soltero</option>
+                    <option value=Casado>Casado</option>
+                    <option value=Divorsiado>Divorsiado</option>
+                </select>
+                <span asp-validation-for="EstadoCivil" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <div>
+            @if (Model.Id != 0)
+            {
+                <partial name="_BotonesActualizar" model="Model.Id" />
+            }
+            else
+            {
+                <partial name="_BotonesCrear" />
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
